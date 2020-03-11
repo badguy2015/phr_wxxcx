@@ -1,0 +1,30 @@
+<view>
+  <swiper indicator-dots="true" autoplay="true" interval="2000">
+    <swiper-item>
+      <image src="/images/post/crab.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/post/crab.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/post/crab.png"></image>
+    </swiper-item>
+  </swiper>
+  <block wx:for="{{post_key}}" wx:for-index="k" wx:for-item="v" wx:key="unique">
+    <view class="post-container">
+      <view class="post-author-date">
+        <image src="{{v.img.author_img}}" class="post-author"></image>
+        <text class="post-date">{{v.date}}</text>
+      </view>
+      <text class="post-title">{{v.title}}</text>
+      <image src="{{v.img.post_img}}" class="post-image"></image>
+      <text class="post-content">{{v.content}}</text>
+      <view class="post-like">
+        <image src="/images/icon/chat.png" class="post-like-image"></image>
+        <text class="post-like-font">{{v.collect_num}}</text>
+        <image src="/images/icon/view.png" class="post-like-image"></image>
+        <text class="post-like-font">{{v.view_num}}</text>
+      </view>
+    </view>
+    </block>
+</view>

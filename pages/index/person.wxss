@@ -1,0 +1,46 @@
+.container{
+  margin-bottom:10rpx;
+  padding-bottom: 20rpx;
+  background: #f0f0f0;
+}
+
+.header{
+  /* display:flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  background: #fff;
+  padding-bottom:20rpx;
+  height:80rpx;
+}
+
+.header-avatar{
+  width:80rpx;
+  height:80rpx;
+  padding-left:20rpx;
+  float:left;
+}
+
+.header-text{
+  float:left;
+  margin-left:25rpx;
+  line-height:80rpx;
+}
+
+.header-icon{
+  float:right;
+  margin-right:20rpx;
+  line-height:100rpx;
+}
+
+.phone{
+  color:#999;
+}
+
+.content{
+  margin-top:20rpx;
+  background: #fff;
+}
+
+page{
+  background: #f0f0f0;
+}

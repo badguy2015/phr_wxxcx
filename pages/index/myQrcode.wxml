@@ -1,0 +1,5 @@
+<view class="container">
+  <p class="container-p">-</p>
+  <canvas class="container-canvas" style="width: 200px; height: 200px;" canvas-id="myQrcode"></canvas>
+  <p>扫描二维码，查看最近14天的健康记录</p>
+</view>

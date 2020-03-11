@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="header">
+    <image class="header-avatar" src="{{userInfo.avatar}}"></image>
+    <text class="header-text">{{userInfo.nickName}}</text>
+    <!-- <text class="header-text phone">15916988001</text> -->
+    <mp-icon class="header-icon" icon="setting" size="{{25}}" bind:tap="gotoSetting"></mp-icon>
+  </view>
+  <view class="content">
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <navigator url="/pages/index/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">我的健康记录</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+  </view>
+</view>

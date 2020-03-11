@@ -1,0 +1,6 @@
+<view class="container">
+  <image src="/images/login/login.jpg"></image>
+  <view class="container-view">登录即代表你同意本程序<text bind:tap="gotoAgreement" class="container-text">《用户协议》</text>和<text bind:tap="gotoPrivatePolicy" class="container-text">《私隐政策》</text>
+  </view>
+  <button open-type="getUserInfo" bindgetuserinfo="getuserinfoHandle">登录</button>
+</view>

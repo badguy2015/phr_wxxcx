@@ -1,0 +1,21 @@
+/* pages/index/myQrcode.wxss */
+
+.container{
+  margin:40rpx 40rpx;
+  height:800rpx;
+  text-align:center;
+  background:white;
+}
+.container-p{
+  line-height: 100rpx;
+  color:white;
+}
+
+.container-canvas{
+  margin:0 auto 0;
+  padding-top: 100rpx;
+}
+page{
+  /* background:url("https://phr.xsphp.com/res/mobile/images/page_background.jpg") repeat-x; */
+  background-color:#eee;
+}

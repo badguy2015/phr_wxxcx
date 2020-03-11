@@ -1,0 +1,10 @@
+/* pages/index/info.wxss */
+
+.policy-view{
+  margin:20rpx auto;
+  font-size: 28rpx;
+  text-align: center;
+}
+.policy-view-text{
+  color:green;
+}

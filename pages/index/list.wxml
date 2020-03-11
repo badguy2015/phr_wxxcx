@@ -1,0 +1,9 @@
+<view class="weui-cells__title">我的健康记录</view>
+<view class="weui-cells weui-cells_after-title">
+  <block wx:for="{{list}}" wx:for-item="info" wx:key="suibian">
+    <navigator url="/pages/index/info?current_day={{info.create_day}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{info.temperature}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{info.create_day}}</view>
+      </navigator>
+  </block>
+</view>

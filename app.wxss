@@ -1,0 +1,5 @@
+@import '/thirdparty/weui.wxss';
+
+text{
+  font-family: MicroSoft Yahei;
+}

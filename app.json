@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/login",
+    "pages/index/setting",
+    "pages/index/protocol/privacyPolicy",
+    "pages/index/person",
+    "pages/index/myQrcode",
+    "pages/posts/posts",
+    "pages/index/list",
+    "pages/index/info",
+    "pages/welcome/welcome",
+    "pages/weuidemo/weuidemo",
+    "pages/index/protocol/agreement"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "mp-icon": "/thirdparty/components/icon/icon"
+  }
+}

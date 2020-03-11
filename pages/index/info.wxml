@@ -1,0 +1,46 @@
+<view class="weui-cells__title">信息登记</view>
+<form bindsubmit="saveHandle">
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">体温</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入体温" name="temperature" value="{{info.temperature}}" />
+    </view>
+  </view>
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">日期</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="date" name="create_day" value="{{create_day}}" start="" end="" bindchange="bindDateChange">
+        <view class="weui-input">{{create_day}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">所在城市</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入所在城市" name="city" value="{{info.city}}" />
+    </view>
+  </view>
+  
+  <view class="weui-cells__title">健康备注</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="请输入健康备注" style="height: 3.3em" name="note" value="{{info.note}}" />
+      </view>
+    </view>
+  </view>
+  <input name="openid" style="display:none;" value="{{openid}}"></input>
+  <view class="weui-btn-area">
+    <button class="weui-btn" form-type="submit" type="primary" >保存</button>
+  </view>
+</view>
+<view class="policy-view">请阅读<text bind:tap="gotoAgreement" class="policy-view-text">《用户协议》</text>和<text bind:tap="gotoPrivatePolicy" class="policy-view-text">《私隐政策》</text>
+  ,提交表示同意。</view>
+</form>

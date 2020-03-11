@@ -1,0 +1,6 @@
+<!--pages/debug/index.wxml-->
+<view class="container">
+  <image class="text-image" src="/images/avatar/1.png"></image>
+  <text class="text-font">test</text>
+  <image class="text-image" src="/images/avatar/1.png"></image>
+</view>

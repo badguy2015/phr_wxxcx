@@ -1,0 +1,98 @@
+<view class="weui-cells__title">个人信息</view>
+<form bind:submit="formSubmit">
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">姓名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入姓名" name="name" value="{{info.name}}" bind:blur="blurHandleName" />
+    </view>
+  </view>
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">电话</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入电话" name="mobile" value="{{info.mobile}}" bind:blur="blurHandleMobile" />
+    </view>
+  </view>
+  <!-- <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">学校</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入学校" name="school" value="{{info.school}}" />
+    </view>
+  </view> -->
+  <!-- <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">专业</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入专业" name="major" value="{{info.major}}" />
+    </view>
+  </view> -->
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">身份证</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入身份证" name="idcard_no" value="{{info.idcard_no}}" bind:blur="blurHandleIdcardNo" />
+    </view>
+  </view>
+  <view class="weui-cell ">
+    <view class="weui-cell__hd">
+      <view class="weui-label">户籍</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入户籍" name="household" value="{{info.household}}" bind:blur="blurHandleHousehold" />
+    </view>
+  </view>
+
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">学校/单位</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bind:change="bindSchoolChange" name="school_id" value="{{info.school_id}}" range="{{school}}">
+        <view class="weui-select weui-select_in-select-after">{{school[schoolIndex]}}</view>
+    </picker>
+    </view>
+  </view>
+
+    <view wx:if="{{showSchoolNote}}" class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="请输入学校/单位" style="height: 1.5em" name="school_note" value="{{info.school_note}}" />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">班级/部门</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bind:change="bindGradeChange" name="grade_id" value="{{info.grade_id}}" range="{{grade}}">
+        <view class="weui-select weui-select_in-select-after">{{grade[gradeIndex]}}</view>
+    </picker>
+    </view>
+  </view>
+  
+      <view wx:if="{{showGradeNote}}"class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="班级/部门" style="height: 1.5em" name="grade_note" value="{{info.grade_note}}" />
+      </view>
+    </view>
+  </view>
+
+
+   <input class="weui-input" name="openid" value="{{info.openid}}" style="display:none;" />
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" form-type="submit">保存</button>
+  </view>
+</view>
+</form>

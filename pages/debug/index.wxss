@@ -1,0 +1,14 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.text-font{
+  color:red;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+}
+
+.text-image{
+  border: 1px solid #ccc;
+}

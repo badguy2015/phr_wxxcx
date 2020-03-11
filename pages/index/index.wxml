@@ -1,0 +1,67 @@
+<!-- <view wx:if="{{!wx_userInfo}}" class="container-getUserInfo">
+    <button open-type="getUserInfo" bindgetuserinfo="getuserinfoHandle"> 获取头像昵称 </button>
+</view> -->
+<view class="container">
+  <swiper indicator-dots="true" autoplay="true" interval="5000">
+    <swiper-item>
+      <image src="{{host}}/res/mobile/images/banner/banner1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="{{host}}/res/mobile/images/banner/banner2.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <view class="userinfo">
+    <block >
+      <view class="container" class="button-sp-area">
+        <!-- <view class="select-container" bind:tap="gotoPerson"><text>个人中心</text></view> -->
+        <!-- <view class="select-container" bind:tap="gotoInfo"><text>信息登记</text></view> -->
+        <!-- <view class="select-container"  bind:tap="gotoRecord"><text>健康记录</text></view> -->
+        <view class="container-view" bind:tap="gotoMyQrcode">
+          <view class="container-view-view-left">
+            <image class="container-view-image" src="{{host}}/res/mobile/images/icon/index/a.png"></image>
+          </view>
+          <view class="container-view-view-right">
+            <text class="container-view-view-right-text-title">1.我的健康码</text>
+            <text class="container-view-view-right-text-content">查看我的健康二位码</text>
+          </view>
+        </view>
+        
+        <view class="container-view" bind:tap="gotoRecord">
+          <view class="container-view-view-left">
+            <image class="container-view-image" src="{{host}}/res/mobile/images/icon/index/e.png"></image>
+          </view>
+          <view class="container-view-view-right">
+            <text class="container-view-view-right-text-title">2.健康记录</text>
+            <text class="container-view-view-right-text-content">查看最近14天自查记录</text>
+          </view>
+        </view>
+        
+        <view class="container-view" bind:tap="gotoInfo">
+          <view class="container-view-view-left">
+            <image class="container-view-image" src="{{host}}/res/mobile/images/icon/index/b.png"></image>
+          </view>
+          <view class="container-view-view-right">
+            <text class="container-view-view-right-text-title">3.健康自查登记</text>
+            <text class="container-view-view-right-text-content">登记自己的健康记录</text>
+          </view>
+        </view>
+        
+        <view class="container-view">
+          <view class="container-view-view-left">
+            <image class="container-view-image" src="{{host}}/res/mobile/images/icon/index/d.png"></image>
+          </view>
+          <view class="container-view-view-right" bind:tap="gotoPerson">
+            <text class="container-view-view-right-text-title">4.个人中心</text>
+            <text class="container-view-view-right-text-content">完善自己的个人信息</text>
+          </view>
+        </view>
+
+        <!-- <button class="weui-btn" type="primary" bind:tap="gotoPerson">个人中心</button>
+        <button class="weui-btn" type="primary" bind:tap="gotoInfo">健康自查登记</button>
+        <button class="weui-btn weui-btn_cell" type="primary" bind:tap="gotoRecord">健康记录</button>
+        <button class="weui-btn weui-btn_cell" type="primary" bind:tap="gotoMyQrcode">我的健康码</button> -->
+        <!-- <button open-type="openSetting" bindopensetting="callback">打开设置页</button> -->
+      </view>
+    </block>
+  </view>
+</view>
