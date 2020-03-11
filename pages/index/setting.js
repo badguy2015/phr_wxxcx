@@ -5,8 +5,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.doLogin();
     var user_info = wx.getStorageSync('user_info');
-    console.log(user_info);
     this.setData({
       info: user_info
       // ,
@@ -19,8 +19,8 @@ Page({
     this.bindGradeData()
   },
   formSubmit:function(e){
-    postData = e.detail.value;
     var postData;
+    postData = e.detail.value;
     postData['nick_name'] = wx.getStorageSync('wx_userInfo').nickName;
     postData['avatar_url'] = wx.getStorageSync('wx_userInfo').avatarUrl;
     var handleUrl = app.globalParams.host +'/mobile/index/updateUserInfo';
