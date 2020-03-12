@@ -3,7 +3,7 @@
 <view class="weui-cells weui-cells_after-title">
   <view class="weui-cell ">
     <view class="weui-cell__hd">
-      <view class="weui-label">姓名</view>
+      <view class="weui-label"><i class="red">*</i>姓名</view>
     </view>
     <view class="weui-cell__bd">
       <input class="weui-input" placeholder="请输入姓名" name="name" value="{{info.name}}" bind:blur="blurHandleName" />
@@ -11,7 +11,7 @@
   </view>
   <view class="weui-cell ">
     <view class="weui-cell__hd">
-      <view class="weui-label">电话</view>
+      <view class="weui-label"><i class="red">*</i>电话</view>
     </view>
     <view class="weui-cell__bd">
       <input class="weui-input" placeholder="请输入电话" name="mobile" value="{{info.mobile}}" bind:blur="blurHandleMobile" />
@@ -35,7 +35,7 @@
   </view> -->
   <view class="weui-cell ">
     <view class="weui-cell__hd">
-      <view class="weui-label">身份证</view>
+      <view class="weui-label"><i class="red">*</i>身份证</view>
     </view>
     <view class="weui-cell__bd">
       <input class="weui-input" placeholder="请输入身份证" name="idcard_no" value="{{info.idcard_no}}" bind:blur="blurHandleIdcardNo" />
@@ -43,7 +43,7 @@
   </view>
   <view class="weui-cell ">
     <view class="weui-cell__hd">
-      <view class="weui-label">户籍</view>
+      <view class="weui-label"><i class="red">*</i>户籍</view>
     </view>
     <view class="weui-cell__bd">
       <input class="weui-input" placeholder="请输入户籍" name="household" value="{{info.household}}" bind:blur="blurHandleHousehold" />

@@ -3,7 +3,7 @@
 <view class="weui-cells weui-cells_after-title">
   <view class="weui-cell ">
     <view class="weui-cell__hd">
-      <view class="weui-label">体温</view>
+      <view class="weui-label"><i class="red">*</i>体温</view>
     </view>
     <view class="weui-cell__bd">
       <input class="weui-input" placeholder="请输入体温" name="temperature" value="{{info.temperature}}" />
@@ -11,7 +11,7 @@
   </view>
   <view class="weui-cell ">
     <view class="weui-cell__hd">
-      <view class="weui-label">日期</view>
+      <view class="weui-label"><i class="red">*</i>日期</view>
     </view>
     <view class="weui-cell__bd">
       <picker mode="date" name="create_day" value="{{create_day}}" start="" end="" bindchange="bindDateChange">
@@ -21,7 +21,7 @@
   </view>
   <view class="weui-cell ">
     <view class="weui-cell__hd">
-      <view class="weui-label">所在城市</view>
+      <view class="weui-label"><i class="red">*</i>所在城市</view>
     </view>
     <view class="weui-cell__bd">
       <input class="weui-input" placeholder="请输入所在城市" name="city" value="{{info.city}}" />

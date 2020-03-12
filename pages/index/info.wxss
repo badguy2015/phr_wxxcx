@@ -8,3 +8,6 @@
 .policy-view-text{
   color:green;
 }
+.red{
+  color:#FF0000;
+}

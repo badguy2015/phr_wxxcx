@@ -5,6 +5,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.freshStorage();
     app.doLogin();
     this.setData({
       host: app.globalParams.host
@@ -110,7 +111,7 @@ Page({
     if (wx.getStorageSync('wx_userInfo')){
       this.setUserInfo();
       return true;
-    } 
+    } else {
       wx.showModal({
         title: '温馨提示',
         content: '体验小程序完整功能，需要获取您的昵称和头像',
@@ -127,12 +128,52 @@ Page({
           }
         }
       })
+    } 
   },
   getPhoneNumberHandle(e) {
     console.log(e)
     console.log(e.detail.errMsg)
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
+  },
+  freshStorage: function(){
+    var url = app.globalParams.host +'/mobile/index/freshStorage';
+    var that = this;
+    wx.request({
+      url: url,
+      method: 'post',
+      success: function (rst) {
+        console.log('freshStorageRst:', rst);
+        if (rst.statusCode === 200) {
+          var is_refresh = rst.data.data.is_refresh;
+          var refresh_id = rst.data.data.refresh_id;
+          // 刷新时间，单位：秒
+          var refresh_interval = rst.data.data.refresh_interval;
+          var refresh_info = wx.getStorageSync('refresh_info');
+          if (is_refresh==="on"){
+            if (!refresh_info.id || refresh_info.id !== refresh_id) {
+              wx.clearStorageSync();
+              var refresh_info = {
+                id: refresh_id,
+                next_timestap: that.getTimestamp() + refresh_interval * 1000
+              }
+              wx.setStorageSync('refresh_info', refresh_info);
+            } else if (!refresh_info.next_timestap || refresh_info.next_timestap < that.getTimestamp()) {
+              var refresh_info = {
+                id: refresh_id,
+                next_timestap: that.getTimestamp() + refresh_interval * 1000
+              }
+              wx.setStorageSync('refresh_info', refresh_info);
+            }
+          }
+          
+        }
+      }
+    })
+  },
+  getTimestamp:function(){
+    var date = new Date();
+    return date.getTime();
   }
 
 })

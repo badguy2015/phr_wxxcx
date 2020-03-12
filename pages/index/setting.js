@@ -19,6 +19,7 @@ Page({
     this.bindGradeData()
   },
   formSubmit:function(e){
+    if (!this.vailidForm(e.detail.value)) return false;
     var postData;
     postData = e.detail.value;
     postData['nick_name'] = wx.getStorageSync('wx_userInfo').nickName;
@@ -40,11 +41,11 @@ Page({
             wx.showToast({
               title: '保存成功',
               duration: 2000
-            })
+            });
             wx.setStorageSync('user_info', rst.data.data.user_info);
-            // wx.navigateBack({
-              
-            // })
+            wx.redirectTo({
+              url: '/pages/index/index',
+            });
           }
         }else{
           wx.showToast({
@@ -219,6 +220,28 @@ Page({
     this.setData({
       info: info
     });
+  },
+  vailidForm:function(data){
+    console.log('data', data);
+    var warnningMsg, warnningName;
+    // 姓名 电话 身份证 户籍 学校 班别
+    if (!data.name){
+      warnningName = '姓名';
+    } else if (!data.mobile) {
+      warnningName = '电话';
+    } else if (!data.idcard_no) {
+      warnningName = '身份证';
+    } else if (!data.household) {
+      warnningName = '户籍';
+    }else{
+      return true;
+    }
+    warnningMsg = warnningName+'不可以为空';
+    wx.showModal({
+      title: '温馨提示',
+      content: warnningMsg,
+    });
+    return false;
   }
 
 })

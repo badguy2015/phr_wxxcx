@@ -12,6 +12,7 @@ Page({
     this.bindInfo(options.current_day);
   },
   saveHandle: function (e) {
+    if (!this.vailidForm(e.detail.value)) return false;
     var handleUrl = app.globalParams.host+'/mobile/index/saveInfo';
     console.log(e.detail.value);
     wx.request({
@@ -20,8 +21,10 @@ Page({
       data: e.detail.value,
       success: function (res) {
         if (res.statusCode === 200) {
-          if(res.data.code){
-
+          if (res.data.code) {
+            wx.showToast({
+              title: res.data.msg
+            });
           }else{
             wx.showToast({
               title: '保存成功',
@@ -68,5 +71,26 @@ Page({
     wx.navigateTo({
       url: '/pages/index/protocol/privacyPolicy',
     })
+  },
+  vailidForm: function (data) {
+    console.log('data', data);
+    var warnningMsg, warnningName;
+    // 体温 日期 所在城市
+    if (!data.temperature) {
+      warnningName = '体温';
+    } else if (!data.create_day) {
+      warnningName = '日期';
+    } else if (!data.city) {
+      warnningName = '所在城市';
+    } else {
+      return true;
+    }
+    warnningMsg = warnningName + '不可以为空';
+    wx.showModal({
+      title: '温馨提示',
+      content: warnningMsg,
+    });
+    return false;
   }
+
 })

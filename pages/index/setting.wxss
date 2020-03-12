@@ -1,1 +1,3 @@
-/* pages/index/setting.wxss */
+.red{
+  color:#FF0000;
+}
