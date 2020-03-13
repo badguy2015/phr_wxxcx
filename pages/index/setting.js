@@ -112,7 +112,7 @@ Page({
     console.log('this',this);
     var info = this.data.info;
     info.school_id = school_id;
-    // this.bindGradeData(school_id)
+    this.bindGradeData(school_id)
     var showSchoolNote, showGradeNote;
     if (school_id == this.data.other_school_index){
       showSchoolNote = true;
@@ -149,8 +149,6 @@ Page({
     var _that = this;
     var gradeListUrl = app.globalParams.host + '/admin/grade/gradeList';
     if (!school_id) school_id = this.data.info.school_id;
-    console.log('tt');
-    console.log(school_id);
     if (!school_id) {return};
     wx.request({
       url: gradeListUrl,
@@ -168,7 +166,8 @@ Page({
             gradeIndexListTure: keys
           });
           console.log('a', _that.data.info.grade_id);
-          console.log('b', keys);
+          console.log('b1', keys);
+          console.log('b2', values);
           // 初始化班级id
           if (_that.data.info.grade_id) {
             for (var i = 0; i < keys.length; i++) {
@@ -181,6 +180,15 @@ Page({
             }
           }
         }
+        if (_that.data.grade[_that.data.gradeIndex] === "其他") {
+            _that.setData({
+              showGradeNote: true
+            });
+        } else {
+          _that.setData({
+            showGradeNote: false
+          });
+        }
       }
     })
 
@@ -190,17 +198,27 @@ Page({
   },
   bindGradeChange: function (e) {
     var grade_id = this.data.gradeIndexListTure[e.detail.value];
-    console.log('c', grade_id);
-    console.log('d', this.data.gradeIndexListTure);
-    console.log('3', e.detail.value);
+    // console.log('c', grade_id);
+    // console.log('d', this.data.gradeIndexListTure);
+    // console.log('3', e.detail.value);
     var info = this.data.info;
     info.grade_id = grade_id;
     this.setData({
       gradeIndex: e.detail.value,
       info: info
     });
-    // todo:修改value
-    // this.bindGradeData();
+    // console.log('a', this.data.grade);
+    // console.log('b', e.detail.value);
+    // console.log('c', this.data.grade[e.detail.value] === "其他");
+    if (this.data.grade[e.detail.value] === "其他") {
+      this.setData({
+        showGradeNote: true
+      });
+    } else {
+      this.setData({
+        showGradeNote: false
+      });
+    }
   },
   blurHandleName: function (res) {
     this.blurHandle('name',res.detail.value);

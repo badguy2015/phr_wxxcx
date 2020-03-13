@@ -82,9 +82,6 @@ Page({
       method: "POST",
       data: { openid: wx.getStorageSync('openid') },
       success: function (res) {
-        // console.log('a', res);
-        // console.log('b', res.data.data.user_info);
-        // console.log('c', res.data.data.user_info.id);
         if (!res.data.data.user_info.id){
           console.log('redirect to fill table!');
           wx.showModal({
